@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Login from "./Login";
 import { Link } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { register } from "../api/auth";
+import UserContext from "../Context/userContext";
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({});
+  const [user, setUser] = useContext(UserContext);
   const { mutate } = useMutation({
     mutationKey: ["register"],
     mutationFn: () => register(userInfo),
+    onSuccess: () => {
+      setUser(true);
+    },
   });
 
   const handleChange = (e) => {
@@ -47,8 +52,8 @@ const Register = () => {
             </label>
             <input
               type="text"
-              id="Username"
-              name="name"
+              id="username"
+              name="username"
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
