@@ -29,7 +29,22 @@ const register = async (userInfo) => {
   storeToken(data.token);
   return data;
 };
+const me = async () => {
+  const { data } = await instance.get("/mini-project/api/auth/me");
 
+  return data;
+};
+
+const update = async (userInfo) => {
+  const formData = new FormData();
+  for (const key in userInfo) formData.append(key, userInfo[key]);
+  const { data } = await instance.put(
+    "/mini-project/api/auth/profile",
+    formData
+  );
+
+  return data;
+};
 const storeToken = (token) => {
   localStorage.setItem("token", token);
 };
@@ -38,4 +53,4 @@ const logout = () => {
   localStorage.removeItem("token");
 };
 
-export { register, storeToken, logout, checkToken, login };
+export { register, storeToken, logout, checkToken, login, me, update };
