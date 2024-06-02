@@ -38,4 +38,24 @@ const logout = () => {
   localStorage.removeItem("token");
 };
 
-export { register, storeToken, logout, checkToken, login };
+const getMyTransactions = async () => {
+  const { data } = await instance.get("/mini-project/api/transactions/my");
+  return data;
+};
+
+const deposit = async (amount) => {
+  const res = await instance.put("/mini-project/api/transactions/deposit", {
+    amount: amount,
+  });
+  return res.data;
+};
+
+export {
+  register,
+  storeToken,
+  logout,
+  checkToken,
+  login,
+  getMyTransactions,
+  deposit,
+};

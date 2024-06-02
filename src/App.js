@@ -8,6 +8,8 @@ import Profile from "./pages/Profile";
 import { useState, useEffect } from "react";
 import UserContext from "./Context/userContext";
 import { checkToken } from "./api/auth";
+import Transactions from "./pages/Transactions";
+import Account from "./pages/Account";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -27,6 +29,8 @@ function App() {
           <Route path="/register" Component={Register} />
           <Route path="/users" Component={Users} />
           <Route path="/profile" Component={Profile} />
+          <Route path="/Transactions" Component={Transactions} />
+          <Route path="/Account" Component={Account} />
         </Routes>
       </div>
     </UserContext.Provider>

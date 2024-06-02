@@ -31,17 +31,15 @@ const Navbar = () => {
               >
                 Home
               </NavLink>
-
-              <NavLink
-                to="/users"
-                className=" text-white hover:bg-yellow-400 hover:text-white px-3 py-2 rounded-md text-lg font-medium"
-              >
-                Users
-              </NavLink>
-
               <>
                 {user ? (
                   <>
+                    <NavLink
+                      to="/users"
+                      className=" text-white hover:bg-yellow-400 hover:text-white px-3 py-2 rounded-md text-lg font-medium"
+                    >
+                      Users
+                    </NavLink>
                     <button
                       onClick={handlelogout}
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -53,6 +51,18 @@ const Navbar = () => {
                       className=" text-white hover:bg-yellow-400 hover:text-white px-3 py-2 rounded-md text-lg font-medium"
                     >
                       Profile
+                    </NavLink>
+                    <NavLink
+                      to="/transactions"
+                      className=" text-white hover:bg-yellow-400 hover:text-white px-3 py-2 rounded-md text-lg font-medium"
+                    >
+                      Transactions
+                    </NavLink>
+                    <NavLink
+                      to="/Account"
+                      className=" text-white hover:bg-yellow-400 hover:text-white px-3 py-2 rounded-md text-lg font-medium"
+                    >
+                      Account
                     </NavLink>
                   </>
                 ) : (
