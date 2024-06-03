@@ -1,12 +1,18 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getMyTransactions } from "../api/auth";
+import { getMyTransactions, me } from "../api/auth";
 
 const Transactions = () => {
-  const { data: Transactions } = useQuery({
+  const { data: userData } = useQuery({
+    queryKey: ["profile"],
+    queryFn: () => me(),
+  });
+
+  const { data: transactionsData } = useQuery({
     queryKey: ["transactions"],
     queryFn: getMyTransactions,
   });
+
   return (
     <div>
       <div className="overflow-x-auto">
@@ -21,27 +27,14 @@ const Transactions = () => {
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-            </tr>
-            {/* row 2 */}
-            <tr className="hover">
-              <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
-            </tr>
-            {/* row 3 */}
-            <tr>
-              <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
-            </tr>
+            {transactionsData.map((transaction, index) => (
+              <tr key={index}>
+                <th>{index + 1}</th>
+                <td>{transaction.amount}</td>
+                <td>{transaction.createdAt}</td>
+                <td>{transaction.type}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
