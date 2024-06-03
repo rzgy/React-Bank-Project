@@ -47,7 +47,7 @@ const Account = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center gap-10">
+    <div className="min-h-screen flex flex-col items-center justify-center gap-10">
       <div className="card w-96 bg-neutral text-neutral-content">
         <div className="card-body items-center text-center">
           <h2 className="card-title">Your available Balance:</h2>
