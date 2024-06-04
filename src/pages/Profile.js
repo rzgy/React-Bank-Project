@@ -73,7 +73,7 @@ const Profile = () => {
         <div className="card-body items-center text-center">
           <h2 className="card-title">{data?.username}</h2>
           <h2 className="card-title">Balance: {data?.balance}</h2>
-          <p>extra info</p>
+
           <div className="card-actions">
             <input
               type="file"
