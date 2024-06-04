@@ -178,6 +178,17 @@ const Transactions = () => {
                       </button>
                     </li>
                   </div>
+                  <div tabIndex={0} role="button" className="btn m-1">
+                    <li>
+                      <button
+                        name="transfer"
+                        value={"transfer"}
+                        onClick={(event) => setFilter(event.target.value)}
+                      >
+                        Transfer
+                      </button>
+                    </li>
+                  </div>
                 </div>
               </div>
             </div>

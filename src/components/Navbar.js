@@ -1,15 +1,17 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { logout } from "../api/auth";
 import { useContext } from "react";
 import UserContext from "../Context/userContext";
 
 const Navbar = () => {
   const [user, setUser] = useContext(UserContext);
+  const Navigate = useNavigate();
 
   const handlelogout = () => {
     logout();
     setUser(false);
+    Navigate("/");
   };
 
   return (
@@ -40,12 +42,7 @@ const Navbar = () => {
                     >
                       Users
                     </NavLink>
-                    <button
-                      onClick={handlelogout}
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      Logout
-                    </button>
+
                     <NavLink
                       to="/profile"
                       className=" text-white hover:bg-yellow-400 hover:text-white px-3 py-2 rounded-md text-lg font-medium"
@@ -64,6 +61,12 @@ const Navbar = () => {
                     >
                       Account
                     </NavLink>
+                    <button
+                      onClick={handlelogout}
+                      className=" text-white hover:bg-yellow-400 hover:text-white px-3 py-2 rounded-md text-lg font-medium"
+                    >
+                      Logout
+                    </button>
                   </>
                 ) : (
                   <>
