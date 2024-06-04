@@ -69,6 +69,11 @@ const Deposit = async (amount) => {
     throw error;
   }
 };
+const getAllUsers = async () => {
+  const { data } = await instance.get("/mini-project/api/auth/users");
+  return data;
+};
+
 const Withdraw = async (amount) => {
   try {
     const res = await instance.put("/mini-project/api/transactions/withdraw", {
@@ -81,9 +86,19 @@ const Withdraw = async (amount) => {
   }
 };
 
-const getAllUsers = async () => {
-  const { data } = await instance.get("/mini-project/api/auth/users");
-  return data;
+const transfer = async (amount, recipientUsername) => {
+  try {
+    const res = await instance.put(
+      `/mini-project/api/transactions/transfer/${recipientUsername}`,
+      {
+        amount: amount,
+      }
+    );
+    return res.data;
+  } catch (error) {
+    console.error("Error during transfer:", error);
+    throw error;
+  }
 };
 
 export {
@@ -98,4 +113,5 @@ export {
   Deposit,
   Withdraw,
   getAllUsers,
+  transfer,
 };
