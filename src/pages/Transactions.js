@@ -67,6 +67,7 @@ const Transactions = () => {
     ));
   return (
     <div>
+        
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}
