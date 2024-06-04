@@ -36,9 +36,9 @@ const Users = () => {
 
   return (
     <>
-      <div className="bg-gray-900 min-h-screen h-screen flex items-center justify-center absolute inset-0 z-[-1]">
-        <div className="max-w-[90%] overflow-scroll w-full px-6 py-8 bg-gray-800 rounded-md shadow-md max-h-[80%]">
-          <h2 className="text-3xl text-white font-semibold mb-6">Users</h2>
+      <div className="bg-white-900 min-h-screen h-screen flex items-center justify-center absolute inset-0 z-[-1]">
+        <div className="max-w-[90%] overflow-scroll w-full px-6 py-8 bg-white rounded-md shadow-md max-h-[80%]">
+          <h2 className="text-3xl  text-sky-500 font-semibold mb-6">Users</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {users?.map((user) => (
               <div
@@ -57,8 +57,12 @@ const Users = () => {
                     />
                   </figure>
                   <div className="card-body">
-                    <h2 className="card-title text-cyan-50">{user.username}</h2>
-                    <h2 className="text-cyan-50">Balance is: {user.balance}</h2>
+                    <h2 className="card-title text-sky-500 ">
+                      {user.username}
+                    </h2>
+                    <h2 className="text-sky-500 ">
+                      Balance is: {user.balance}
+                    </h2>
                     <div className="card-actions justify-end">
                       <button
                         className="btn btn-primary"
